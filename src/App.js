@@ -4,7 +4,6 @@ import "./styles.css";
 
 
 function App() {
-  //let idRepo = 0;
   const [ repositories, setRepositories ] = useState([]);
   
   useEffect(() => {
@@ -19,21 +18,16 @@ function App() {
       title: 'Repository'
     });
 
-
     const repository = result.data;
 
     setRepositories([...repositories, repository]);
   }
 
   async function handleRemoveRepository(id) {
-
-    
-
     const result = api.delete(`repositories/${id}`, []);
     
     const deleted = result.data;
 
-  
     repositories.splice(deleted, 1);
     
     setRepositories([...repositories]);
